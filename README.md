@@ -3,7 +3,7 @@
 
 it's a tumblr theme. no, really. i swear. [Johnny Benson](https://github.com/johnnybenson) and i made it together this weekend. [check out the demo!](http://termblrbrg.tumblr.com/)
 
-![screenshot of the theme.](http://i.imgur.com/8AwvM.jpg "no. really.")
+![screenshot of the theme.](http://i.imgur.com/jB16V.jpg "no. really.")
 
 	 _                      _     _      _               
 	| |_ ___ _ __ _ __ ___ | |__ | |_ __| |__  _ __ __ _ 
@@ -13,7 +13,7 @@ it's a tumblr theme. no, really. i swear. [Johnny Benson](https://github.com/joh
 	                                               |___/ 
 
 
-it supports all the post-types, of course. it has a slick high-res image viewer. it's really surprisingly good.
+it supports all the post-types, of course. it has a slick high-res image viewer and disqus comments. it's really a surprisingly good theme. we're pleased.
 
 it's free, obviously. CREATIVE COMMONS, SEE.
 
