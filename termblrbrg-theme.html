@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-<!--	 _                      _     _      _               
+<!--     _                      _     _      _               
 		| |_ ___ _ __ _ __ ___ | |__ | |_ __| |__  _ __ __ _ 
 		| __/ _ \ '__| '_ ` _ \| '_ \| | '__| '_ \| '__/ _` |
 		| ||  __/ |  | | | | | | |_) | | |  | |_) | | | (_| |
@@ -806,7 +806,7 @@
             background: #F2F2F2;
             }
         .post .chat .caption {
-            padding: 12px 0;
+            padding-bottom: 12px;
             }
         .post .caption a {
             display: inline;
@@ -982,6 +982,7 @@
             padding: 6px;
             }
         .post .answer { 
+            margin-top: -15px;
             padding: 0 15px;
             }
         .notes li,
@@ -1482,11 +1483,11 @@
 
                                 {block:Link}
                                 <div class="link">
+                                    {block:Description}<div class="caption"><span>{Description}</span></div>{/block:Description}
                                     <a href="{URL}" {Target} class="link-block">
                                         <p><strong>{Name}</strong><br />
                                         <span>{URL}</span></p>
                                     </a>
-                                    {block:Description}<div class="caption"><span>{Description}</span></div>{/block:Description}
                                 </div>
                                 {/block:Link}
 
