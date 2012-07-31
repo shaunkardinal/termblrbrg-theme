@@ -1,7 +1,7 @@
-termblrbrg-theme
+[termblrbrg-theme](http://termblrbrg.tumblr.com/)
 ================
 
-it's a tumblr theme. no, really. i swear. [Johnny Benson](https://github.com/johnnybenson) and i made it together this weekend. 
+it's a tumblr theme. no, really. i swear. [Johnny Benson](https://github.com/johnnybenson) and i made it together this weekend. [check out the demo!](http://termblrbrg.tumblr.com/)
 
 ![screenshot of the theme.](http://i.imgur.com/8AwvM.jpg "no. really.")
 
