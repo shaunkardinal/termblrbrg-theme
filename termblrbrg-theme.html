@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-<!--     	 _                      _     _      _               
+<!--          _                      _     _      _               
 		| |_ ___ _ __ _ __ ___ | |__ | |_ __| |__  _ __ __ _ 
 		| __/ _ \ '__| '_ ` _ \| '_ \| | '__| '_ \| '__/ _` |
 		| ||  __/ |  | | | | | | |_) | | |  | |_) | | | (_| |
@@ -764,9 +764,9 @@
             padding: 3px 15px 0;
             }
         .post blockquote {
-            margin: 0 0 0 10px;
+            margin: 0 0 15px 0;
             border-left: 2px solid #ccc;
-            padding-left: 10px;
+            padding-left: 13px;
             }
             
         .post hgroup {
@@ -806,7 +806,7 @@
             background: #F2F2F2;
             }
         .post .chat .caption {
-            padding-bottom: 12px;
+            padding: 0 12px 12px;
             }
         .post .caption a {
             display: inline;
@@ -827,6 +827,9 @@
             }
         .post a.link-block .caption {
             padding: 0;
+            }
+        .post a.link-block p {
+            margin: 0;
             }
         .post a.link-block span {
             font-weight: normal;
@@ -1488,6 +1491,7 @@
                                     <a href="{URL}" {Target} class="link-block">
                                         <p><strong>{Name}</strong><br />
                                         <span>{URL}</span></p>
+                                        <p><span>{MetaDescription}</span></p>
                                     </a>
                                 </div>
                                 {/block:Link}
@@ -1508,7 +1512,7 @@
                                         <div class="audio-block clearfix">
                                             {block:AlbumArt}<img src="{AlbumArtURL}" alt="">{/block:AlbumArt}
                                             {AudioPlayerGrey}
-                                            <p>{block:TrackName}{TrackName}{/block:TrackName}{block:Artist}by {Artist}{/block:Artist}</p>
+                                            <p>{block:TrackName}{TrackName}{/block:TrackName}{block:Artist} by {Artist}{/block:Artist}</p>
                                         </div>
                                     {/block:AudioPlayer}
                                         {AudioEmbed-400}
