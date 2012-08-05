@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{block:English}en{/block:English}{block:French}fr{/block:French}{block:German}de{/block:German}{block:Japanese}ja{/block:Japanese}{block:Italian}it{/block:Italian}{block:Spanish}es{/block:Spanish}{block:Polish}pl{/block:Polish}">
 <head>
+    <meta name="if:Show Likes" content="1"/>
     <meta name="if:Show Recent Tweets" content="1"/>
     <meta name="if:Show Chat" content="1"/>
     <meta name="if:Endless Scrolling" content="1">
@@ -15,12 +16,15 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-<!--          _                      _     _      _               
-		| |_ ___ _ __ _ __ ___ | |__ | |_ __| |__  _ __ __ _ 
-		| __/ _ \ '__| '_ ` _ \| '_ \| | '__| '_ \| '__/ _` |
-		| ||  __/ |  | | | | | | |_) | | |  | |_) | | | (_| |
-		 \__\___|_|  |_| |_| |_|_.__/|_|_|  |_.__/|_|  \__, |
-		                                               |___/    -->
+<!--
+		 ##### ###### #####  #    # #####  #      #####  #####  #####   ####  
+		   #   #      #    # ##  ## #    # #      #    # #    # #    # #    # 
+		   #   #####  #    # # ## # #####  #      #    # #####  #    # #      
+		   #   #      #####  #    # #    # #      #####  #    # #####  #  ### 
+		   #   #      #   #  #    # #    # #      #   #  #    # #   #  #    # 
+		   #   ###### #    # #    # #####  ###### #    # #####  #    #  ####		-->
+		   
+
     <style type="text/css">
     
         /* reset */
@@ -156,6 +160,32 @@
         h2, h3 {
             font: 13px/1 'LucidaGrandeBold', 'Lucida Grande Bold', 'arial black', sans-serif;
             }
+		h2.button {
+		    border: 1px solid #A5A5A5;
+		    border-color: rgba(0, 0, 0, .15);
+		    border-radius: 3px;
+		    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+		    display: inline-block;
+		    padding: 5px;
+		    vertical-align: top;
+
+		    color: #333;
+		    cursor: pointer;
+		    font-weight: bold;
+		    margin: 0;
+		    white-space: nowrap;
+		    float: right;
+
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+
+		}
         h3 {
             background: #F1F1F1;
             border-bottom: 1px solid #ccc;
@@ -546,7 +576,7 @@
             }
         
         #profile-box {
-            min-height: 120px;
+            min-height: 154px;
             padding-bottom: 12px;
             margin-bottom: 39px;
         
@@ -584,7 +614,7 @@
             color: #111;
             }
         #profile-description { 
-            width: 415px;
+            width: 327px;
             background: #F1F3F8;
             margin: 12px 0;
             padding: 10px 10px 10px 24px;
@@ -610,6 +640,60 @@
             -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.5);
                     box-shadow: inset 0 0 2px rgba(0,0,0,.5);
             }
+
+		#profile-likes {
+		    #position: absolute;
+		    #left: 342px;
+		    #top: 0;
+			text-align: right;
+			margin: -45px 8px -88px;
+			height: 133px;
+			/* this is a mess, i know o_o */
+		}
+		
+		h2.button.likes {
+		    margin: 16px 12px;
+		}
+		
+		h2.button a {
+		    font-weight: 500;
+		    color: #333;
+		}
+		
+		ul#likes {
+		    font-size: 0;
+		    clear: both;
+		}
+		
+		.like_post {
+		    display: inline-block;
+		    width: 113px;
+		    height: 76px;
+		    margin-right: 12px;
+		    border: 1px solid #ccc;
+		    overflow: hidden;
+		    vertical-align: top;
+		    font-size: 11px ;
+		    border-radius: 3px;
+		    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+		}
+		
+		.like_post:hover {
+		    border-color: #3B5998;
+		}
+
+		.like_post a {
+		    display: block;
+		    background: #f5f5f5;
+		    text-align: center ;
+		}
+		
+		.like_post img {
+		    width: 113px;
+		}
+		
+
+
 
 
         /* -- Ask / Submit Toggle Box -- */
@@ -763,6 +847,14 @@
         .post .chat { 
             padding: 3px 15px 0;
             }
+		.post .caption,
+		.post blockquote { 
+			overflow-x: hidden;
+			}
+		.post .caption a:before,
+		.post .blockquote a:before { 
+			content: ""; /* adds break if no space before link */
+			}
         .post blockquote {
             margin: 0 0 15px 0;
             border-left: 2px solid #ccc;
@@ -785,6 +877,12 @@
             line-height: 16px;
             }
             
+		.right-arrow {
+			color: #999;
+			font-size: 120%;
+			line-height: inherit;
+		}
+
         .post hgroup,
         .post .question,
         .post > div p,
@@ -806,7 +904,7 @@
             background: #F2F2F2;
             }
         .post .chat .caption {
-            padding: 0 12px 12px;
+            padding: 0 0 12px;
             }
         .post .caption a {
             display: inline;
@@ -993,7 +1091,7 @@
         .conversation li {
             display: block;
             font-size: 10px;
-            line-height: 1;
+            line-height: 1.2;
             background: #F1F3F8;
             border-bottom: 1px solid #fff;
             }
@@ -1014,6 +1112,18 @@
             margin: 6px;
             }
         
+        .post .question div { 
+        	display: inline-block;
+        	vertical-align: top;
+        	}
+        .question-img {
+        	width: 36px;
+        	text-align: right;
+        	}
+        .question-text {
+        	width: 345px;
+        	padding: 12px 6px 12px 2px;
+        	}
         
         
         /**
@@ -1024,6 +1134,7 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
+            margin: 0 1px 4px;
             }
         
         .post .video object,
@@ -1335,7 +1446,8 @@
     </style>
     <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
-<body class="thaMFwurm">
+
+<body class="termblrbrg by JBSK12">
 
     <header>
         <div class="container">
@@ -1358,7 +1470,7 @@
                     {/block:Following}
                 </li>
                 <li class="ask">
-                    <a href="{block:AskEnabled}/ask{/block:AskEnabled}#ask-submit-box">{AskLabel}</a>
+                    {block:AskEnabled}<a href="/ask#ask-submit-box">{AskLabel}</a>{/block:AskEnabled}
                 </li>
                 <li class="archive"><a href="/archive">{lang:Archive}</a></li>
             </ul>
@@ -1401,6 +1513,14 @@
             <div id="profile-box" class="container">
                 <div id="profile-pic" class="bgc"></div>
                 <h1 id="profile-name"><a href="/">{Name}.tumblr.com</a></h1>
+                {block:IfShowLikes}
+                    {block:Likes}
+                        <div id="profile-likes">
+                            <h2 class="button likes"><a href="http://www.tumblr.com/liked/by/{Name}">Recent Likes</a></h2>
+                            {Likes limit="4" summarize="25" width="113"}
+                        </div>
+                    {/block:Likes}
+                {/block:IfShowLikes}
                 <div id="profile-description">
                     {block:Description}<div class="description">{Description}</div>{/block:Description}
                 </div>
@@ -1459,8 +1579,7 @@
                                 <hgroup>
                                     <img src="{PortraitURL-40}" />
                                     <div class="author-info">
-                                        {block:Link}Link: {/block:Link}<a href="{URL}">{Name}</a>
-                                            {block:Answer}got a note from {Asker}.{/block:Answer}
+                                        {block:Link}Link: {/block:Link}{block:Answer}{Asker} <span class="right-arrow">&#9656;</span> {/block:Answer}<a href="{URL}">{Name}</a>
                                             {block:Quote}shared a quote.{/block:Quote}
                                             {block:Video}shared a video.{/block:Video}
                                             {block:Audio}shared a song.{/block:Audio}
@@ -1491,7 +1610,6 @@
                                     <a href="{URL}" {Target} class="link-block">
                                         <p><strong>{Name}</strong><br />
                                         <span>{URL}</span></p>
-                                        <!--p class="link-excerpt"><span>{Description}</span></p-->
                                     </a>
                                 </div>
                                 {/block:Link}
@@ -1556,9 +1674,8 @@
                                 {block:Answer}
                                 <div class="answer">
                                     <div class="question">
-                                        <img src="{AskerPortraitURL-40}">
-                                        {Asker}
-                                        {Question}
+                                        <div class="question-img"><img src="{AskerPortraitURL-40}"></div>
+                                        <div class="question-text">{Asker} {Question}</div>
                                     </div>
 
                                     {Answer}
