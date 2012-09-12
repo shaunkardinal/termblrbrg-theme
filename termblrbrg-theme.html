@@ -5,8 +5,9 @@
     <meta name="if:Show Recent Tweets" content="1"/>
     <meta name="if:Show Chat" content="1"/>
     <meta name="if:Endless Scrolling" content="1">
-    <meta name="image:Cover Image" content="http://25.media.tumblr.com/tumblr_kzjlfiTnfe1qz4rgho1_1280.jpg"/>
     <meta name="image:Profile Pic" content=""/>
+    <meta name="image:Cover Image" content="http://25.media.tumblr.com/tumblr_kzjlfiTnfe1qz4rgho1_1280.jpg"/>
+    <meta name="text:Disqus Shortname" content=""/>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -16,13 +17,20 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-<!--
-		 ##### ###### #####  #    # #####  #      #####  #####  #####   ####  
-		   #   #      #    # ##  ## #    # #      #    # #    # #    # #    # 
-		   #   #####  #    # # ## # #####  #      #    # #####  #    # #      
-		   #   #      #####  #    # #    # #      #####  #    # #####  #  ### 
-		   #   #      #   #  #    # #    # #      #   #  #    # #   #  #    # 
-		   #   ###### #    # #    # #####  ###### #    # #####  #    #  ####		-->
+	<!--
+
+	 ##### ###### #####  #    # #####  #      #####  #####  #####   ####  
+	   #   #      #    # ##  ## #    # #      #    # #    # #    # #    # 
+	   #   #####  #    # # ## # #####  #      #    # #####  #    # #      
+	   #   #      #####  #    # #    # #      #####  #    # #####  #  ### 
+	   #   #      #   #  #    # #    # #      #   #  #    # #   #  #    # 
+	   #   ###### #    # #    # #####  ###### #    # #####  #    #  ####		
+	   
+
+	Termblrbrg Theme v1.2 by Johnny Benson & Shaun Kardinal (JBSK12)
+	Free Theme at https://github.com/shaunkardinal/termblrbrg-theme/
+
+	-->
 		   
 
     <style type="text/css">
@@ -49,6 +57,7 @@
         article, aside, figure, footer, header, hgroup, nav, section {display:block}
         
         html {overflow-y:scroll}
+        script { display: none }
         
         ul {list-style:none}
         blockquote, q {quotes:none}
@@ -574,6 +583,17 @@
             height: 316px;
             /* background-image: defined in-theme */
             }
+        #cover-img a,
+        #cover-img img {
+        	position: absolute;
+        	top: 0;
+        	right: 0;
+        	bottom: 0;
+        	left: 0;
+        	display: block;
+        	width: 100%;
+        	height: 100%
+        	}
         
         #profile-box {
             min-height: 154px;
@@ -660,12 +680,28 @@
 		    color: #333;
 		}
 		
-		ul#likes {
+		ul#likes,
+		ol.tumblr_posts {
 		    font-size: 0;
 		    clear: both;
 		}
 		
-		.like_post {
+		
+		.like_post,
+		.tumblr_photo_post,
+		.tumblr_video_post {
+			display: none;
+			}
+			
+		.tumblr_photo_post:nth-of-type(1),
+		.tumblr_photo_post:nth-of-type(2),
+		.tumblr_photo_post:nth-of-type(3),
+		.tumblr_photo_post:nth-of-type(4),		
+		.like_post:nth-child(1),
+		.like_post:nth-child(2),
+		.like_post:nth-child(3),
+		.like_post:nth-child(4) {
+			position: relative;
 		    display: inline-block;
 		    width: 113px;
 		    height: 76px;
@@ -678,7 +714,23 @@
 		    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
 		}
 		
-		.like_post:hover {
+		.tumblr_caption {
+			color: transparent;
+			}
+		.tumblr_photo_post a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 111px;
+			height: 74px;
+			display: block;
+			text-indent: -9999px;
+		    border-radius: 3px;
+			border: 1px solid transparent;
+			}
+		
+		.like_post:hover,
+		.tumblr_photo_post a:hover {
 		    border-color: #3B5998;
 		}
 
@@ -688,13 +740,21 @@
 		    text-align: center ;
 		}
 		
-		.like_post img {
+		.like_post img,
+		.tumblr_photo_post img {
 		    width: 113px;
 		}
 		
-
-
-
+		.tumblr_photo_post a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 113px;
+			height: 76px;
+			display: block;
+			text-indent: 9999px;			
+			}
+		
 
         /* -- Ask / Submit Toggle Box -- */
         
@@ -1105,7 +1165,7 @@
             }
         
         .notes img,
-        .post .answer img {
+        .post .question img {
             position: relative;
             width: 24px;
             vertical-align: middle;
@@ -1508,7 +1568,7 @@
 
         <div class="bigwrap-left clearfix">
 
-            <div id="cover-img" class="container bgc"></div>
+            <div id="cover-img" class="container bgc"><a href="{image:Cover Image}"><img src="http://unkardinal.com/misc/termblrbrg.gif" data-hi-res="{image:Cover Image}" title="view cover image"></a></div>
 
             <div id="profile-box" class="container">
                 <div id="profile-pic" class="bgc"></div>
@@ -1521,6 +1581,14 @@
                         </div>
                     {/block:Likes}
                 {/block:IfShowLikes}
+                {block:IfNotShowLikes}
+                    {block:Likes}
+                        <div id="profile-likes">
+                            <h2 class="button likes"><a href="{URL}">Latest Images</a></h2>
+							<script type="text/javascript" src="/js?num=6&type=photo"></script>
+                        </div>
+                    {/block:Likes}
+                {/block:IfNotShowLikes}
                 <div id="profile-description">
                     {block:Description}<div class="description">{Description}</div>{/block:Description}
                 </div>
@@ -1694,6 +1762,7 @@
                         {/block:Posts}
 
                         {block:PermalinkPage}
+                        {block:IfDisqusShortname}
                         <article class="box" id="disqus">
                             <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
                             <script type="text/javascript">
@@ -1702,21 +1771,22 @@
                                 */
                               (function() {
                                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                               dsq.src = 'http://pcnw.disqus.com/embed.js';
+                               dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                               })();
                             </script>
-                            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=pcnw">comments powered by Disqus.</a></noscript>
+                            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
                             <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
                             {/block:Permalink}<script type="text/javascript">
-                            var disqus_shortname = 'pcnw';
+                            var disqus_shortname = '{text:Disqus Shortname}';
                             (function () {
                               var s = document.createElement('script'); s.async = true;
-                              s.src = 'http://pcnw.disqus.com/count.js';
+                              s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
                               (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
                             }());
                             </script>
                         </article>
+                        {/block:IfDisqusShortname}
                         {/block:PermalinkPage}
 
                     </div> <!-- .content-wrap -->
@@ -1786,5 +1856,10 @@
 {/block:Twitter}
 
 <script type="text/javascript" src="http://static.tumblr.com/skfkqxf/z4wm8055b/wurm.js"></script>
+<script>
+	(function(jQuery) { 
+		$('li.tumblr_video_post').remove(); 
+	}(jQuery));
+</script>
 </body>
 </html>
